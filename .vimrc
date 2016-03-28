@@ -1,6 +1,6 @@
 let g:ctrlp_max_files = 0
 let g:ctrlp_use_caching = 0
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Maximum width of text that is being inserted
 " Longer lines will be broken after white space to get this width
