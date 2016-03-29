@@ -1,14 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { createStore} from 'redux';
-import { Provider } from 'react-redux';
-import gameLogic from './reducers/gameLogic';
 
-const store = createStore(gameLogic);
+import 'babel-polyfill';
+import { render } from 'react-dom';
+import React from 'react';
+import App from './containers/App';
+import { Provider } from 'react-redux';
+
+import configureStore from './store/configureStore';
+
+const initialState = window.__CHESS__INITIAL_STATE__;
+console.log('@@#@#');
+const store = configureStore(initialState);
 const rootElement = document.getElementById('root');
 
-ReactDOM.render(
+render(
     <Provider store={store}>
         <App />
     </Provider>,

@@ -1,5 +1,4 @@
-const movement = (state = {}, action) => {
+export default function movement(state = {}, action) {
+    console.log(state);
     return state;
 };
-
-export default movement;

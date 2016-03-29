@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import movement from './movement';
 
-const gameLogic = combineReducers({
+const rootReducer = combineReducers({
     movement
 });
 
-export default gameLogic;
+export default rootReducer;

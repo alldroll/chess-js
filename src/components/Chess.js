@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Board from './components/Board';
+import Board from './Board';
 
-export default class App extends Component {
+export default class Chess extends Component {
     render() {
         return (
             <Board/>
