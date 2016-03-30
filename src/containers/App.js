@@ -4,7 +4,7 @@ import Chess from '../components/Chess'
 
 function mapStateToProps(state) {
     return {
-        test: state.test
+        figures: state.figures
     };
 }
 

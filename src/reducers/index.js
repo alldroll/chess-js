@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import movement from './movement';
+import figuresReducer from './figures';
 
 const rootReducer = combineReducers({
-    movement
+    figures: figuresReducer
 });
 
 export default rootReducer;

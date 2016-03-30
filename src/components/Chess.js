@@ -4,7 +4,7 @@ import Board from './Board';
 export default class Chess extends Component {
     render() {
         return (
-            <Board/>
-        )
+            <Board figures={this.props.figures}/>
+        );
     }
 }
