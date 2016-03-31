@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Square from './Square';
 import Figure from './Figure';
-import { getSymbolByFigureTeam } from '../base/constants';
+import { getSymbolByFigureTeam } from '../constants/base';
 
 export default class Board extends Component {
     constructor(props) {

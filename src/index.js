@@ -1,4 +1,3 @@
-
 import 'babel-polyfill';
 import { render } from 'react-dom';
 import React from 'react';
@@ -8,7 +7,6 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
 const initialState = window.__CHESS__INITIAL_STATE__;
-console.log('@@#@#');
 const store = configureStore(initialState);
 const rootElement = document.getElementById('root');
 

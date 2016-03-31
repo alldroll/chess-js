@@ -1,5 +1,5 @@
 import React, { Component, PropTypes} from 'react';
-import { TeamT, FigureT } from '../base/constants';
+import { TeamT, FigureT } from '../constants/base';
 
 const TeamTEnum = Object.keys(TeamT).map((k) => TeamT[k]);
 const FigureTEnum = Object.keys(FigureT).map((k) => FigureT[k]);
