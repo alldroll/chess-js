@@ -4,7 +4,11 @@ import Chess from '../components/Chess'
 
 function mapStateToProps(state) {
     return {
-        figures: state.figures
+        figures: state.figures.map(f => {
+            f.isActive = f.team === state.turn;
+            return f;
+        }),
+        turn: state.turn
     };
 }
 

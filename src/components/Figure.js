@@ -11,6 +11,8 @@ export default class Figure extends Component {
 
     render() {
         let symbol = this.props.symbol;
+        let isActive = this.props.isActive;
+
         return (
             <div style={ {display: 'inline-block'} }>
                 {symbol}
@@ -24,5 +26,6 @@ Figure.propTypes = {
     y: PropTypes.number.isRequired,
     team: PropTypes.oneOf(TeamTEnum),
     type: PropTypes.oneOf(FigureTEnum),
-    symbol: PropTypes.string.isRequired
+    symbol: PropTypes.string.isRequired,
+    isActive: PropTypes.bool.isRequired
 };
