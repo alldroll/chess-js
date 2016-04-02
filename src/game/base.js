@@ -1,9 +1,9 @@
-const TeamT = {
+export const TeamT = {
     WHITE: 'white',
     BLACK: 'black'
 };
 
-const FigureT = {
+export const FigureT = {
     KING: 'King',
     QUEEN: 'Queen',
     ROOK: 'Rook',
@@ -30,7 +30,7 @@ Symbols[FigureT.BISHOP][TeamT.BLACK] = '♝';
 Symbols[FigureT.KNIGHT][TeamT.BLACK] = '♞';
 Symbols[FigureT.PAWN][TeamT.BLACK] = '♟';
 
-const getSymbolByFigureTeam = (figure, team) => {
+export const getSymbolByFigureTeam = (figure, team) => {
     if (Symbols.hasOwnProperty(figure) && Symbols[figure].hasOwnProperty(team)) {
         return Symbols[figure][team];
     }
@@ -38,8 +38,12 @@ const getSymbolByFigureTeam = (figure, team) => {
     throw new Error('getByFigureTeam invalid params');
 };
 
-export {
-    TeamT,
-    FigureT,
-    getSymbolByFigureTeam
+export const BLACK_PATH_INIT_Y = 1;
+export const WHITE_PATH_INIT_Y = 6;
+
+export var gameState = {};
+export const stateSubscriber = (actualState) => {
+    gameState = actualState;
 };
+
+

@@ -4,7 +4,7 @@ import React from 'react';
 import App from './containers/App';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import { getSymbolByFigureTeam } from './game/base';
+import { getSymbolByFigureTeam, stateSubscriber } from './game/base';
 
 const initialState = ((state) => {
     let {figures} = state, id = 0;
@@ -24,6 +24,10 @@ const initialState = ((state) => {
 })(window.__CHESS__INITIAL_STATE__);
 
 const store = configureStore(initialState);
+store.subscribe(() => {
+    stateSubscriber(store.getState());
+});
+
 const rootElement = document.getElementById('root');
 
 render(
