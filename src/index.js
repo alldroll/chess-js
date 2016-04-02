@@ -7,17 +7,13 @@ import configureStore from './store/configureStore';
 import { getSymbolByFigureTeam, stateSubscriber } from './game/base';
 
 const initialState = ((state) => {
-    let {figures} = state, id = 0;
-    let nFigures = {
-        data: [],
-        figuresIdsByXY: {}
-    }
+    const {figures} = state;
+    let id = 0, nFigures = [];
 
     for (let figure of figures) {
         figure.id = id++;
         figure.symbol = getSymbolByFigureTeam(figure.type, figure.team)
-        nFigures.data.push(figure);
-        nFigures.figuresIdsByXY[figure.x + '_' + figure.y] = id;
+        nFigures.push(figure);
     }
 
     return Object.assign({}, state, { figures: nFigures });

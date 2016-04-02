@@ -1,3 +1,7 @@
+body {
+    position: relative;
+}
+
 .chessboard {
     width: 640px;
     height: 640px;
@@ -13,6 +17,8 @@
     text-align: center;
     display: table-cell;
     vertical-align: middle;
+    line-height: 80px;
+    position: relative;
 }
 
 .black {
@@ -26,4 +32,26 @@
 .figure {
     height: 100%;
     width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0.3;
+}
+
+.green_overlay {
+    background-color: green;
+}
+
+.red_overlay {
+    background-color: red;
+}
+
+.yellow_overlay {
+    background-color: yellow;
 }

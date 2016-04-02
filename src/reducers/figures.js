@@ -25,9 +25,7 @@ const figure = (state = {}, action) => {
 export default (state = {}, action) => {
     switch (action.type) {
         case ActionT.MOVE_FIGURE: {
-            return Object.assign({}, state, {
-                data: state.data.map(f => figure(f, action))
-            });
+            return state.map(f => figure(f, action));
         }
     }
 

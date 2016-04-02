@@ -8,9 +8,7 @@ const FigureTEnum = Object.keys(FigureT).map((k) => FigureT[k]);
 const figureSource = {
     beginDrag(props) {
         console.log('BEGIN DRAG');
-        return {
-            id: props.id
-        };
+        return props;
     },
 
     endDrag(props, monitor, component) {

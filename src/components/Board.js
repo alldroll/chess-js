@@ -26,8 +26,7 @@ class Board extends Component {
 
     renderPiece(x, y) {
         let piece = null;
-        const figures= this.props.figures.data;
-        for (let figure of figures) {
+        for (let figure of this.props.figures) {
             if (figure.x === x && figure.y === y) {
                 piece = <Figure {...figure}/>;
                 break;
