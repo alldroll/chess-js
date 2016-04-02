@@ -1,5 +1,5 @@
 import * as ActionT from '../constants/actions';
-import { TeamT } from '../constants/base';
+import { TeamT } from '../game/base';
 
 export default (state = TeamT.WHITE, action) => {
     let nstate = state;

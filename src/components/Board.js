@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backed from 'react-dnd-html5-backend';
 import Square from './Square';
 import Figure from './Figure';
-import { getSymbolByFigureTeam } from '../constants/base';
+import { getSymbolByFigureTeam } from '../game/base';
 
-export default class Board extends Component {
+class Board extends Component {
     constructor(props) {
         super(props);
     }
@@ -11,24 +13,28 @@ export default class Board extends Component {
     renderSquare(i) {
         const x = i % 8;
         const y = Math.floor(i / 8);
-        const figures = this.props.figures;
-        let piece = '';
 
+
+        return (
+            <div key={i}>
+                <Square x={x} y={y} onDrop={this.props.moveFigure}>
+                    {this.renderPiece(x, y)}
+                </Square>
+            </div>
+        );
+    }
+
+    renderPiece(x, y) {
+        let piece = null;
+        const figures= this.props.figures.data;
         for (let figure of figures) {
             if (figure.x === x && figure.y === y) {
-                figure.symbol = getSymbolByFigureTeam(figure.type, figure.team);
                 piece = <Figure {...figure}/>;
                 break;
             }
         }
 
-        return (
-            <div key={i}>
-                <Square x={x} y={y}>
-                    {piece}
-                </Square>
-            </div>
-        );
+        return piece;
     }
 
     render() {
@@ -44,3 +50,5 @@ export default class Board extends Component {
         );
     }
 }
+
+export default DragDropContext(HTML5Backed)(Board);

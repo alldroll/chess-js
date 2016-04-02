@@ -22,3 +22,8 @@
 .white {
     background-color: #fff;
 }
+
+.figure {
+    height: 100%;
+    width: 100%;
+}

@@ -1,22 +1,52 @@
 import React, { Component, PropTypes} from 'react';
-import { TeamT, FigureT } from '../constants/base';
+import { DragSource } from 'react-dnd';
+import { TeamT, FigureT } from '../game/base';
 
 const TeamTEnum = Object.keys(TeamT).map((k) => TeamT[k]);
 const FigureTEnum = Object.keys(FigureT).map((k) => FigureT[k]);
 
-export default class Figure extends Component {
+const figureSource = {
+    beginDrag(props) {
+        console.log('BEGIN DRAG');
+        return {
+            id: props.id
+        };
+    },
+
+    endDrag(props, monitor, component) {
+        if (!monitor.didDrop()) {
+            return;
+        }
+
+        var item = monitor.getItem();
+        console.log('END DRAG', item);
+    }
+};
+
+function collect(connect, monitor) {
+    return {
+        connectDragSource: connect.dragSource(),
+        connectDragPreview: connect.dragPreview(),
+        isDragging: monitor.isDragging()
+    };
+}
+
+class Figure extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        let symbol = this.props.symbol;
-        let isActive = this.props.isActive;
+        const { connectDragSource, isDragging, symbol } = this.props;
 
-        return (
-            <div style={ {display: 'inline-block'} }>
+        return connectDragSource(
+            <span className="figure" style={{
+                cursor: 'move',
+                opacity: isDragging ? 0.5 : 1,
+                fontSize: 50
+            }}>
                 {symbol}
-            </div>
+            </span>
         );
     }
 }
@@ -27,5 +57,9 @@ Figure.propTypes = {
     team: PropTypes.oneOf(TeamTEnum),
     type: PropTypes.oneOf(FigureTEnum),
     symbol: PropTypes.string.isRequired,
-    isActive: PropTypes.bool.isRequired
+    connectDragSource: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired
 };
+
+
+export default DragSource('FIGURE', figureSource, collect)(Figure);

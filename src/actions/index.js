@@ -6,9 +6,12 @@ export const changeTurn = () => {
     };
 };
 
-export const freezeOpponent = (team) => {
+export const moveFigure = (id, x, y) => {
     return {
-        type: constants.FREEZE_OPPONENT,
-        opponent: team
+        type: constants.MOVE_FIGURE,
+        id: id,
+        x: x,
+        y: y
     };
 };
+
