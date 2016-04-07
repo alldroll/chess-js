@@ -45,5 +45,3 @@ export var gameState = {};
 export const stateSubscriber = (actualState) => {
     gameState = actualState;
 };
-
-
